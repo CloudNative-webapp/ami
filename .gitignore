@@ -4,5 +4,9 @@ packer_cache/
 # Crash log
 crash.log
 
+*.sh
+
 # For built boxes
 *.box
+
+.DS_Store
