@@ -1,5 +1,5 @@
 # ami
-## Build Ami
+## Build Ami using packer
 
 ## Validate code using following command
 ./packer validate ami.json
