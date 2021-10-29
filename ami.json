@@ -6,7 +6,8 @@
         "subnet_id": "",
         "source_ami": "",
         "aws_instance_type": "",
-        "ssh_username": "ubuntu"
+        "ssh_username": "ubuntu",
+        "aws_shareAccount":""
     },
     "builders": [
         {
@@ -19,6 +20,8 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
+            "ami_users": "{{user `aws_shareAccount`}}",
+            
             "ami_description": "Ubuntu AMI for Cloud native web app",
             "launch_block_device_mappings": [
                 {
@@ -37,8 +40,10 @@
                 "FOO=foo"
             ],
             "inline": [
+                "sudo apt-get update",
                 "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -",
-                "sudo apt install nodejs npm"
+                "sudo apt install nodejs",
+                "node --version"
             ]
         }
     ]
